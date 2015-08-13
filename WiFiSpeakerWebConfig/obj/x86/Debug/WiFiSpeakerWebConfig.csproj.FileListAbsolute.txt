@@ -28,3 +28,43 @@ C:\Users\Will\Documents\Visual Studio 2010\Projects\WiFiSpeakerWebConfig\WiFiSpe
 C:\Users\Will\Documents\Visual Studio 2010\Projects\WiFiSpeakerWebConfig\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap.min.css
 C:\Users\Will\Documents\Visual Studio 2010\Projects\WiFiSpeakerWebConfig\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap-theme.css.map
 C:\Users\Will\Documents\Visual Studio 2010\Projects\WiFiSpeakerWebConfig\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap.css.map
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\WiFiSpeakerWebConfig.exe.config
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\obj\x86\Debug\WiFiSpeakerWebConfig.exe
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\obj\x86\Debug\WiFiSpeakerWebConfig.pdb
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\application.css
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap-theme.css
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap-theme.min.css
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap.css
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap.min.css
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap-theme.css.map
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\css\bootstrap.css.map
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\views\Configure\Index.cshtml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\views\Login\Index.cshtml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\views\MasterPage.cshtml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\WiFiSpeakerWebConfig.exe
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\WiFiSpeakerWebConfig.pdb
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\log4net.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.Authentication.Forms.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.Hosting.Self.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.ViewEngines.Razor.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\System.Web.Razor.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Topshelf.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Topshelf.Log4Net.dll
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\log4net.xml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.xml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.Authentication.Forms.xml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.Hosting.Self.xml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\Nancy.ViewEngines.Razor.xml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\System.Web.Razor.xml
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\obj\x86\Debug\WiFiSpeakerWebConfig.csprojResolveAssemblyReference.cache
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\img\WifispeakerLogo.png
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\js\jquery-1.11.3.min.js
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\fonts\glyphicons-halflings-regular.svg
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\js\bootstrap.js
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\js\bootstrap.min.js
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\js\npm.js
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\fonts\glyphicons-halflings-regular.eot
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\fonts\glyphicons-halflings-regular.ttf
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\fonts\glyphicons-halflings-regular.woff
+C:\Users\Will\Desktop\WiFiServer\WiFiSpeakerWebConfig\bin\Debug\assets\fonts\glyphicons-halflings-regular.woff2

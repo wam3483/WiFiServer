@@ -11,48 +11,47 @@ using Nancy.Conventions;
 
 namespace WiFiSpeakerWebConfig
 {
-    public class FormsAuthBootstrapper : DefaultNancyBootstrapper
-    {
-        protected override void ConfigureConventions(NancyConventions nancyConventions)
-        {
-            base.ConfigureConventions(nancyConventions);
+	public class FormsAuthBootstrapper : DefaultNancyBootstrapper
+	{
+		protected override void ConfigureConventions(NancyConventions nancyConventions)
+		{
+			nancyConventions.StaticContentsConventions.Add(
+				StaticContentConventionBuilder.AddDirectory("/assets")
+			);
+			base.ConfigureConventions(nancyConventions);
+		}
+		protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+		{
+			// We don't call "base" here to prevent auto-discovery of
+			// types/dependencies
+		}
 
-            nancyConventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("/assets")
-            );
-        }
-        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
-        {
-            // We don't call "base" here to prevent auto-discovery of
-            // types/dependencies
-        }
+		protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
+		{
+			base.ConfigureRequestContainer(container, context);
 
-        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
-        {
-            base.ConfigureRequestContainer(container, context);
+			// Here we register our user mapper as a per-request singleton.
+			// As this is now per-request we could inject a request scoped
+			// database "context" or other request scoped services.
+			container.Register<IUserMapper, UserDatabase>();
+		}
 
-            // Here we register our user mapper as a per-request singleton.
-            // As this is now per-request we could inject a request scoped
-            // database "context" or other request scoped services.
-            container.Register<IUserMapper, UserDatabase>();
-        }
+		protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
+		{
+			// At request startup we modify the request pipelines to
+			// include forms authentication - passing in our now request
+			// scoped user name mapper.
+			//
+			// The pipelines passed in here are specific to this request,
+			// so we can add/remove/update items in them as we please.
+			var formsAuthConfiguration =
+				new FormsAuthenticationConfiguration()
+				{
+					RedirectUrl = "~/login",
+					UserMapper = requestContainer.Resolve<IUserMapper>(),
+				};
 
-        protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
-        {
-            // At request startup we modify the request pipelines to
-            // include forms authentication - passing in our now request
-            // scoped user name mapper.
-            //
-            // The pipelines passed in here are specific to this request,
-            // so we can add/remove/update items in them as we please.
-            var formsAuthConfiguration =
-                new FormsAuthenticationConfiguration()
-                {
-                    RedirectUrl = "~/login",
-                    UserMapper = requestContainer.Resolve<IUserMapper>(),
-                };
-
-            FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
-        }
-    }
+			FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
+		}
+	}
 }
