@@ -11,6 +11,7 @@ namespace WiFiSpeakerWebConfig
         public IEnumerable<string> GetAssemblyNames()
         {
             yield return "WiFiSpeakerWebConfig";
+            yield return "Nancy.ViewEngines.Razor";
             //yield return "WiFiSpeakerWebConfig.Website";
         }
 

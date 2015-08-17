@@ -1,12 +1,18 @@
-﻿<html>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+
+<html>
 <head>
     <link rel="stylesheet" type="text/css" href="~/assets/css/application.css" />
-    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css" />
+    <link rel="Stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css" />
     <script type="text/javascript" src="~/assets/js/jquery-1.11.3.min.js"></script>
     @RenderSection("head")
 </head>
 <body>
-    <span class="visible-xs">SIZE XS</span><span class="visible-sm">SIZE SM</span><span class="visible-md">SIZE MD</span><span class="visible-lg">SIZE LG</span>
+    <span class="visible-xs">SIZE XS</span>
+    <span class="visible-sm">SIZE SM</span>
+    <span class="visible-md">SIZE MD</span>
+    <span class="visible-lg">SIZE LG</span>
     @RenderBody()
 </body>
 </html>
