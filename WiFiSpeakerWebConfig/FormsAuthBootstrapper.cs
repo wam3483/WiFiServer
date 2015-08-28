@@ -34,6 +34,7 @@ namespace WiFiSpeakerWebConfig
 			// As this is now per-request we could inject a request scoped
 			// database "context" or other request scoped services.
 			container.Register<IUserMapper, UserDatabase>();
+            container.Register<IConfigService, MockConfigService>();
 		}
 
 		protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
