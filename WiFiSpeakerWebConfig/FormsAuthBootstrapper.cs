@@ -13,6 +13,27 @@ namespace WiFiSpeakerWebConfig
 {
 	public class FormsAuthBootstrapper : DefaultNancyBootstrapper
 	{
+		TinyIoCContainer iocContainer;
+
+		public FormsAuthBootstrapper()
+		{
+		}
+		private void RegisterForTest(TinyIoCContainer container)
+		{
+			container.Register<IWiFiSpeakerConfigurationService, MockWiFiSpeakerConfigurationService>().AsSingleton();
+
+			iocContainer.Register<IUserMapper, UserDatabase>().AsSingleton();
+		}
+
+		protected override TinyIoCContainer CreateRequestContainer(NancyContext context)
+		{
+			if (iocContainer == null)
+			{
+				iocContainer = base.CreateRequestContainer(context);
+				RegisterForTest(iocContainer);
+			}
+			return iocContainer;
+		}
 		protected override void ConfigureConventions(NancyConventions nancyConventions)
 		{
 			nancyConventions.StaticContentsConventions.Add(
@@ -28,13 +49,10 @@ namespace WiFiSpeakerWebConfig
 
 		protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
 		{
-			base.ConfigureRequestContainer(container, context);
-
 			// Here we register our user mapper as a per-request singleton.
 			// As this is now per-request we could inject a request scoped
 			// database "context" or other request scoped services.
-			container.Register<IUserMapper, UserDatabase>();
-            container.Register<IConfigService, MockConfigService>();
+			base.ConfigureRequestContainer(container, context);
 		}
 
 		protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)

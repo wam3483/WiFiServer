@@ -6,54 +6,52 @@ using System.Text;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
 using Nancy;
+using System.Security.Cryptography;
 namespace WiFiSpeakerWebConfig
 {
-    public class UserDatabase : IUserMapper
-    {
-        private readonly static List<UserDbObj> users = new List<UserDbObj>();
+	public class UserDatabase : IUserMapper
+	{
+		private readonly static List<Tuple<string, string, Guid>> users = new List<Tuple<string, string, Guid>>();
+		static UserDatabase()
+		{
+			users.Add(new Tuple<string, string, Guid>("admin",
+				GetPasswordHash("password"),
+				new Guid("55E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
+			users.Add(new Tuple<string, string, Guid>("user",
+				GetPasswordHash("password"),
+				new Guid("56E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
+		}
+		public UserDatabase()
+		{
+		}
 
-        static UserDatabase()
-        {
-            users.Add(new UserDbObj("admin", "password", new Guid("55E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
-            users.Add(new UserDbObj("user", "password", new Guid("56E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
-        }
+		public IUserIdentity GetUserFromIdentifier(Guid identifier, NancyContext context)
+		{
+			var userRecord = users.Where(u => u.Item3 == identifier).FirstOrDefault();
 
-        public IUserIdentity GetUserFromIdentifier(Guid identifier, NancyContext context)
-        {
-            var userRecord = users.Where(u => u.Guid == identifier).FirstOrDefault();
-            if (userRecord != null)
-            {
-                return new UserIdentity
-                       {
-                           UserName = userRecord.Name
-                       };
-            }
-            return null;
-        }
+			return userRecord == null
+					   ? null
+					   : new UserIdentity { UserName = userRecord.Item1 };
+		}
 
-        public static Guid? ValidateUser(string username, string password)
-        {
-            var userRecord = users.Where(u => u.Name == username && u.Password == password).FirstOrDefault();
-
-            if (userRecord == null)
-            {
-                return null;
-            }
-
-            return userRecord.Guid;
-        }
-    }
-    class UserDbObj
-    {
-        public string Name { get; private set; }
-        public string Password { get; private set; }
-        public Guid Guid { get; private set; }
-
-        public UserDbObj(string name, string pass, Guid guid)
-        {
-            this.Name = name;
-            this.Password = pass;
-            this.Guid = guid;
-        }
-    }
+		private static string GetPasswordHash(string input)
+		{
+			using (var hashFunc = SHA512.Create())
+			{
+				var data = Encoding.Unicode.GetBytes(input);
+				var hash = hashFunc.ComputeHash(data);
+				return Encoding.Unicode.GetString(hash);
+			}
+		}
+		public static Guid? ValidateUser(string username, string password)
+		{
+			string hash = GetPasswordHash(password);
+			var userRecord = users.Where(u => u.Item1 == username && u.Item2 == hash).FirstOrDefault();
+			if (userRecord == null)
+			{
+				return null;
+			}
+			return userRecord.Item3;
+		}
+	}
 }

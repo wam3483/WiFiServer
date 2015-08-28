@@ -88,6 +88,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
@@ -108,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWiFiSpeakerConfigurationProvider.cs" />
     <Compile Include="Modules\ConfigureModule.cs" />
     <Compile Include="FormsAuthBootstrapper.cs" />
     <Compile Include="Modules\LoginModule.cs" />
@@ -217,7 +219,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WiFiSpeakerServiceLib\WiFiSpeakerServiceLib\WiFiSpeakerServiceLib.csproj">
+      <Project>{545b0b81-133e-45d2-a0be-6276352a54c4}</Project>
+      <Name>WiFiSpeakerServiceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

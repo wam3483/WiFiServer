@@ -1,2 +1,19 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
-@section head { } @{ Layout = "MasterPage.cshtml"; }
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<WiFiSpeakerWebConfig.Objects.ServerConfigViewModel>
+@section head {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#login").click(function () {
+                $("#loginForm").submit();
+            });
+        });
+    </script>
+}
+@{ Layout = "MasterPage.cshtml";}
+
+@Model.Config.ServerName version @Model.Config.Version
+<form id="configForm" method="post" action="login">
+    <a id="login" class="btn btn-blue-dark btn-md">
+        <span class="btn-label">Save</span>
+        <div class="btn-icon"><i class="icon-arrow">&nbsp;</i></div>
+    </a>
+</form>
