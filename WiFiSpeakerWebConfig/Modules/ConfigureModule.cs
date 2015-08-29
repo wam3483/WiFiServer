@@ -1,7 +1,7 @@
 ﻿using Nancy;
 using Nancy.Security;
 using WiFiSpeakerWebConfig.Objects;
-
+using Nancy.ModelBinding;
 namespace WiFiSpeakerWebConfig
 {
 	public class ConfigureModule : NancyModule
@@ -12,6 +12,7 @@ namespace WiFiSpeakerWebConfig
 			this.RequiresAuthentication();
 			Get["/"] = x =>
 			{
+				
 				var user = this.Context.CurrentUser as UserIdentity;
 				var userModel = new UserModel(this.Context.CurrentUser.UserName);
 				var serviceModel = service.GetConfigurationViewModel();
@@ -22,7 +23,7 @@ namespace WiFiSpeakerWebConfig
 				};
 				return View["Index", model];
 			};
-
+			
 			Post["/SetConfig"] = x =>
 			{
 				WiFiServerConfigViewModel model = this.Request.Form.Configuration;

@@ -6,12 +6,12 @@ using System.Text;
 using System.Net;
 namespace WiFiSpeakerWebConfig.Objects
 {
-
 	public class ServerConfigViewModel
 	{
 		public WiFiServerConfigViewModel Config { get; set; }
 		public UserModel User { get; set; }
 	}
+
 	public class WiFiServerConfigViewModel
 	{
 		public string ServerName { get; set; }
