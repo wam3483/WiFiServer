@@ -3,10 +3,20 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="~/assets/css/application.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/application-icons.css" />
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css" />
     <link rel="Stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/gridly/jquery.gridly.css" />
+
     <script type="text/javascript" src="~/assets/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/gridly/jquery.gridly.js"></script>
     @RenderSection("head")
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
 </head>
 <body>
     <span class="visible-xs">SIZE XS</span>

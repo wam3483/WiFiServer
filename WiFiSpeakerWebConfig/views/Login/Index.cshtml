@@ -15,7 +15,7 @@
     });
 </script>
 
-<form id="loginForm" method="post" action="login">
+<form id="loginForm" method="post" action="~/login">
 <div class="outer background-style">
     <div class="middle">
         <div class="inner">
@@ -35,7 +35,7 @@
                                 @Html.Partial("Views/Partials/HintTextBox.cshtml", new WiFiSpeakerWebConfig.Objects.HintTextBoxModel("Username", "fa fa-2x fa-user left-icon", "Username"))
                             </div>
                             <div class="col-md-12 col-xs-12">
-                                <input name="Password" class="col-xs-12" type="password" autocomplete="off" placeholder="Password">
+                                <input name="Password" class="col-xs-12 iconbox" type="password" autocomplete="off" placeholder="Password">
                                 <span class="fa fa-2x fa-lock left-icon" />
                             </div>
                             <div class="col-xs-12">

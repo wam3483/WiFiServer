@@ -113,6 +113,7 @@
     <Compile Include="Modules\ConfigureModule.cs" />
     <Compile Include="FormsAuthBootstrapper.cs" />
     <Compile Include="Modules\LoginModule.cs" />
+    <Compile Include="Objects\Partial\AudioSourceTileModel.cs" />
     <Compile Include="Objects\Partial\HintTextBoxModel.cs" />
     <Compile Include="Objects\UserModel.cs" />
     <Compile Include="Objects\WiFiServerConfigViewModel.cs" />
@@ -123,6 +124,9 @@
     <Compile Include="UserMapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\Partials\AudioSourceTile.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -132,7 +136,13 @@
     <None Include="assets\css\bootstrap.css.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="assets\css\application-icons.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\css\font-awesome.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\css\gridly\jquery.gridly.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\fonts\fontawesome-webfont.svg">
@@ -150,6 +160,9 @@
     <Content Include="assets\fonts\glyphicons-halflings-regular.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="assets\css\gridly\jquery.gridly.css.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="assets\fonts\fontawesome-webfont.eot">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -171,7 +184,19 @@
     <EmbeddedResource Include="Views\Login\Index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="assets\js\gridly\jquery.gridly.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
+    <Content Include="assets\img\mic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\jquery-ui.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\js\gridly\jquery.gridly.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\MasterPage.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -225,6 +250,7 @@
       <Name>WiFiSpeakerServiceLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

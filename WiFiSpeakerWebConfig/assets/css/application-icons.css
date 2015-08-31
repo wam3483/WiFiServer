@@ -1,0 +1,38 @@
+﻿
+.icon-edit{
+    position:relative;
+    top:50%;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.icon-edit:hover,
+.icon-edit:hover:before{
+    color:#637383;
+}
+.icon-edit:before{
+    position:absolute;
+    font-family:FontAwesome;
+    content: "\f040";
+    font-size: 2em;
+    color: #3C5064;
+    transform: translate(-50%, -50%);
+}
+
+.icon-delete{
+    position:relative;
+    top:50%;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.icon-delete:hover,
+.icon-delete:hover:before{
+    color:#637383;
+}
+.icon-delete:before {
+    position:absolute;
+    font-family:FontAwesome;
+    content:"\f00d";
+    font-size:2em;
+    color:#3C5064;
+    transform: translate(-50%, -50%);
+}

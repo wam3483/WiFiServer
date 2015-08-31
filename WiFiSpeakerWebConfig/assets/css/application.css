@@ -1,98 +1,143 @@
-﻿.mypanel
-{
+﻿.mypanel {
     background-color: #ced1eb;
     border-radius: 5px;
     border: 2px solid #3C5064;
 }
-.margin-sm
-{
+
+.margin-sm {
     margin: 5px;
 }
-.background-style
-{
+
+.background-style {
     background-image: url('../img/bg.png');
     background-repeat: repeat-y repeat-x;
 }
-.hint
-{
+
+.hint {
     color: #3C5064;
 }
-.width-200
-{
+
+.width-200 {
     width: 200px;
 }
 
-h2, p, span
-{
+h2, p, span {
     color: #3C5064;
 }
-.left-icon
-{
+
+.left-icon {
     position: absolute;
     left: 25px;
     top: 15%;
-    color:#3C5064;
+    color: #3C5064;
 }
-.pad-bottom-lg
-{
+
+.pad-bottom-lg {
     padding-bottom: 40px;
 }
-.pad-top-bottom-sm
-{
+
+.pad-top-bottom-sm {
     padding-bottom: 25px;
     padding-top: 25px;
 }
-.background-color
-{
+
+.background-color {
     background: #6f76b9;
 }
 
-.outer
-{
+.outer {
     display: table;
     position: absolute;
     height: 100%;
     width: 100%;
 }
 
-.middle
-{
+.popover {
+    background-color: lightgray !important;
+}
+
+.popover-content {
+    color: #3C5064;
+    background-color: lightgray;
+    border-color: lightgray;
+}
+
+.popover.bottom > .arrow:after {
+    border-top-color: lightgray !important;
+}
+
+.popover.top > .arrow:after {
+    border-top-color: lightgray !important;
+}
+
+.popover.left > .arrow:after {
+    border-top-color: lightgray !important;
+}
+
+.popover.right > .arrow:after {
+    border-top-color: lightgray !important;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.middle {
     display: table-cell;
     vertical-align: middle;
 }
 
-.inner
-{
+.inner {
     margin-left: auto;
     margin-right: auto;
 }
-
-input[type=text], input[type=password]
-{
+.modal-header{
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-color: transparent !important;
+    background-color:lightgray;
+}
+input[type=text].iconbox, input[type=password].iconbox {
     padding: 10px;
     padding-left: 35px;
     margin-bottom: 5px;
-    border: none ! important;
-    box-shadow: none ! important;
+    border: none !important;
+    box-shadow: none !important;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #BDC2C7;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #BDC2C7;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #BDC2C7;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #BDC2C7;
+.fancytextbox{
+    padding: 10px;
+    border: 1px solid lightgray;
+    box-shadow: none !important;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
-.mybtn-lg
-{
+.horiz-margin-sm{
+    margin-left: 10px;
+    margin-right: -20px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #BDC2C7;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #BDC2C7;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #BDC2C7;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #BDC2C7;
+}
+
+.mybtn-lg {
     padding: 10px;
     color: #3C5064;
     background-color: #D9FB34;
@@ -101,10 +146,41 @@ input[type=text], input[type=password]
     border-radius: 5px;
     font-size: large;
 }
-a.mybtn-lg:hover
-{
+
+a.mybtn-lg:hover {
     text-decoration: none;
     cursor: hand;
     color: #3C5064;
     background-color: #CAEA2C;
+}
+
+.tile {
+    background-color: #CED1EB;
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    border: 1px solid #B9BCD4;
+}
+
+    .tile label, .tile table {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tile table {
+        height: 90%;
+    }
+
+    .tile .footer {
+        width: 100%;
+        height: 50px;
+        border-radius: 50px;
+        background-color: rgba(0,0,0,.25);
+    }
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

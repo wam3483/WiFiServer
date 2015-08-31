@@ -24,6 +24,14 @@ namespace WiFiSpeakerWebConfig
 			{
 				ServerName = "my server",
 				Version = "2.0",
+                ConfiguredAudioSources = new ConfiguredAudioSourceViewModel[]
+                {
+                    new ConfiguredAudioSourceViewModel() {ConfiguredName="test1",HardwareName="h1" },
+                    new ConfiguredAudioSourceViewModel() {ConfiguredName="test2",HardwareName="h2" },
+                    new ConfiguredAudioSourceViewModel() {ConfiguredName="test3",HardwareName="h3" },
+                    new ConfiguredAudioSourceViewModel() {ConfiguredName="test4",HardwareName="h4" },
+                    new ConfiguredAudioSourceViewModel() {ConfiguredName="test5",HardwareName="h5" },
+                }
 			};
 		}
 

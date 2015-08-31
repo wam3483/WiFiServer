@@ -1,19 +1,145 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<WiFiSpeakerWebConfig.Objects.ServerConfigViewModel>
+﻿@using WiFiSpeakerWebConfig.Objects;
+@using System.Collections.Generic;
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<WiFiSpeakerWebConfig.Objects.ServerConfigViewModel>
 @section head {
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#login").click(function () {
-                $("#loginForm").submit();
+            $("#save").click(function () {
+                $("#configForm").submit();
             });
         });
+
+        function saveConfiguration() {
+            var obj = new Object();
+            obj.ServerName = "bob";
+            obj.Version = "";
+            $.post("Configure/SetConfig", obj).done(function (data) {
+                alert("Data Loaded: " + data);
+            });;
+        }
     </script>
 }
+
 @{ Layout = "MasterPage.cshtml";}
 
 @Model.Config.ServerName version @Model.Config.Version
-<form id="configForm" method="post" action="login">
-    <a id="login" class="btn btn-blue-dark btn-md">
-        <span class="btn-label">Save</span>
-        <div class="btn-icon"><i class="icon-arrow">&nbsp;</i></div>
-    </a>
-</form>
+<input id="clickMe" type="button" value="clickme" onclick="saveConfiguration();" />
+
+
+@{ List<AudioSourceTileModel> viewModels = new List<AudioSourceTileModel>();}
+@if (Model.Config.HasNoConfiguredSources)
+{
+}
+else
+{
+    <div style="position:relative">
+        <div class="gridly">
+            @foreach (var source in Model.Config.ConfiguredAudioSources)
+            {
+                var model = new AudioSourceTileModel(source.ConfiguredName,
+                    source.HardwareName, AudioSourceType.Mic, AudioSourceStatus.None);
+                viewModels.Add(model);
+                @Html.Partial("Views/Partials/AudioSourceTile.cshtml", model)
+            }
+        </div>
+    </div>
+}
+
+@foreach (var tileModel in viewModels)
+{
+    <!-- Modal -->
+    <div class="modal fade" id="edit_@tileModel.Id" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <label class="col-xs-12">Audio Source Display Name:</label>
+                        <input  class="fancytextbox horiz-margin-sm" name="SourceName" type="text" autocomplete="off" placeholder="Display Name" />
+                        <label class="col-xs-12">Audio Source:</label>
+                        <select>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="delete_@tileModel.Id" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Delete '@tileModel.ConfiguredName'?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="deleteModel('@tileModel.Id');">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    var gridlyObj = $('.gridly').gridly({
+        base: 250, // px
+        gutter: 20, // px
+        columns: 4
+    });
+    function deleteModel(modelId) {
+        $("#" + modelId).remove();
+        gridlyObj.layout();
+    }
+
+    var large = { screen: 1200, size: 250, columns: 4 };
+    var medium = { screen: 979, size: 250, columns: 4 };
+    var small = { screen: 767, size: 200, columns: 2 };
+    var xsmall = { screen: 480, size: 150, columns: 1 };
+    window.onresize = function () {
+        gridlyObj.draggingBegan();
+        gridlyObj.draggingEnded();
+        var width = window.innerWidth;
+        if (width >= large.screen) {
+            gridlyObj.settings.columns = large.columns;
+            //gridlyObj.settings.base = large.size;
+            gridlyObj.layout();
+        }
+        else if (width >= medium.screen) {
+            gridlyObj.settings.columns = medium.columns;
+            //gridlyObj.settings.base = medium.size;
+            gridlyObj.layout();
+        }
+        else if (width >= small.screen) {
+            gridlyObj.settings.columns = small.columns;
+            // gridlyObj.settings.base = small.size;
+            gridlyObj.layout();
+        }
+        else if (width >= xsmall.screen) {
+            gridlyObj.settings.columns = xsmall.columns;
+            //gridlyObj.settings.base = xsmall.size;
+            gridlyObj.layout();
+        }
+    }
+</script>

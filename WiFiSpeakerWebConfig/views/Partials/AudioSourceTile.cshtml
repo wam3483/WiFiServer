@@ -1,0 +1,20 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<WiFiSpeakerWebConfig.Objects.AudioSourceTileModel>
+
+<div class="tile" id="@Model.Id">
+    <label>@Model.ConfiguredName</label>
+    <img class="center grayscale" src="@Model.BackgroundImageSrc" />
+    <table>
+        <tr>
+            <td valign="bottom" style="padding-bottom:10px;padding-left:10px;padding-right:10px;">
+                <div class="footer">
+                    <div class="col-xs-6 full-height" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Edit">
+                        <a class="icon-edit"  data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#edit_@Model.Id"></a>
+                    </div>
+                    <div class="col-xs-6 full-height" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Delete">
+                        <a class="icon-delete" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#delete_@Model.Id"></a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
